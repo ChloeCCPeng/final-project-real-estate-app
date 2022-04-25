@@ -1,0 +1,18 @@
+{
+  "development": {
+    "autoBuild": true,
+    "port": "3535",
+    "https": true,
+    "publicOutputDir": "vite-dev"
+  },
+  "test": {
+    "autoBuild": true,
+    "publicOutputDir": "vite-test"
+  },
+  "production": {
+    "publicOutputDir": "vite-production"
+  },
+  "staging": {
+    "publicOutputDir": "vite-staging"
+  }
+}

@@ -1,0 +1,28 @@
+@import '../styles/logo.scss';
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: black;
+  }
+
+  .version {
+    color: white;
+  }
+}
+
+header {
+  display: grid;
+  height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 20vh;
+  place-content: center;
+}
+
+.hero {
+  box-sizing: border-box;
+  font-size: clamp(4rem, 10vw, 4.5rem);
+  line-height: 1;
+  font-weight: 800;
+  margin: 0 0 0 1rem;
+  text-align: center;
+}

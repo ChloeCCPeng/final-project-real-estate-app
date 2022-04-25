@@ -1,0 +1,16 @@
+{
+  "name": "test_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "left-pad": "^1.2.0"
+  },
+  "devDependencies": {
+    "ci": "^2.0.0",
+    "right-pad": "^1.0.1",
+    "vite": "^2.8.6",
+    "vite-plugin-ruby": "^1.0.8"
+  }
+}

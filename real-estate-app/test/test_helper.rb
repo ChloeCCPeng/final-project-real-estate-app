@@ -1,77 +1,13 @@
-# frozen_string_literal: true
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
 
-require 'simplecov'
-SimpleCov.start {
-  add_filter '/test/'
-  add_filter '/vite_ruby/lib/tasks'
-}
+class ActiveSupport::TestCase
+  # Run tests in parallel with specified workers
+  parallelize(workers: :number_of_processors)
 
-require 'minitest/autorun'
-require 'minitest/reporters'
-require 'minitest/stub_any_instance'
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
 
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true, location: true, fast_fail: true)]
-
-require 'rails'
-require 'rails/test_help'
-require 'pry-byebug'
-
-ENV['VITE_RUBY_SKIP_COMPATIBILITY_CHECK'] = 'true'
-require_relative 'test_app/config/environment'
-Rails.env = 'production'
-ViteRuby.reload_with
-
-module ViteRubyTestHelpers
-  def setup
-    refresh_config
-  end
-
-  def teardown
-    refresh_config
-  end
-
-  def refresh_config(**options)
-    ViteRuby.reload_with(**options).config
-  end
-
-  def with_rails_env(env)
-    original = Rails.env
-    Rails.env = ActiveSupport::StringInquirer.new(env)
-    refresh_config
-    yield(ViteRuby.config)
-  ensure
-    Rails.env = ActiveSupport::StringInquirer.new(original)
-    refresh_config
-  end
-
-  def test_app_path
-    File.expand_path('test_app', __dir__)
-  end
-
-  def with_dev_server_running(&block)
-    ViteRuby.instance.stub(:dev_server_running?, true, &block)
-  end
-end
-
-class ViteRuby::Test < Minitest::Test
-  include ViteRubyTestHelpers
-
-private
-
-  def stub_builder(build_successful:, stale: false, &block)
-    ViteRuby::Build.stub_any_instance(:success, build_successful) {
-      ViteRuby::Build.stub_any_instance(:stale?, stale) {
-        ViteRuby::Builder.stub_any_instance(:build_with_vite, build_successful, &block)
-      }
-    }
-  end
-
-  def assert_run_command(*argv, flags: [])
-    Dir.chdir(test_app_path) {
-      mock = Minitest::Mock.new
-      mock.expect(:call, nil, [ViteRuby.config.to_env, %r{node_modules/.bin/vite}, *argv, *flags])
-      Kernel.stub(:exec, mock) { ViteRuby.run(argv, exec: true) }
-      mock.verify
-    }
-  end
+  # Add more helper methods to be used by all tests here...
 end

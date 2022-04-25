@@ -1,6 +1,0 @@
-#!/bin/bash
-set -e
-
-bin/vite clobber --mode=production
-bin/assets
-bin/serve

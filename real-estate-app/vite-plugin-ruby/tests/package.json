@@ -1,7 +1,0 @@
-{
-  "name": "vite-plugin-ruby-tests",
-  "private": true,
-  "devDependencies": {
-    "vite-plugin-ruby": "workspace:*"
-  }
-}

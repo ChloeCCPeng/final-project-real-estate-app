@@ -82,7 +82,6 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.text :greenEnergyEfficient
       t.integer :walkScore
       t.integer :user_id
-      t.integer :user_id
       
       t.timestamps
     end

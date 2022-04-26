@@ -60,7 +60,6 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.boolean :carportYN
       t.date :contigentDate
       t.boolean :associationYN
-      t.integer :associationFee
       t.string :associationName
       t.string :associationFeeFrequency
       t.text :associationFeeIncludes
@@ -82,7 +81,9 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.text :interiorFeatures
       t.text :greenEnergyEfficient
       t.integer :walkScore
-
+      t.integer :user_id
+      t.integer :user_id
+      
       t.timestamps
     end
   end

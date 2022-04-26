@@ -2,7 +2,8 @@ class CreateOffers < ActiveRecord::Migration[7.0]
   def change
     create_table :offers do |t|
       t.integer :amount
-
+      t.integer :user_id
+      
       t.timestamps
     end
   end

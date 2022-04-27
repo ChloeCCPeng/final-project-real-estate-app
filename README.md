@@ -1,4 +1,4 @@
-# final-project-real-estate-app
+# Final-Project-Real-Estate-App
 
 # Table of Contents 
 *   General info 

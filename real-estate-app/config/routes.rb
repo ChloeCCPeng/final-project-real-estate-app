@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :messages
   resources :offers, only: [:create, :show, :update, :destroy]
   resources :watchlists
-  resources :watchlists
+  resources :watchli
 
 end

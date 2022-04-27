@@ -5,9 +5,13 @@ class User < ApplicationRecord
     has_many :offers, through: :houses
 
     # self relational join
-    has_many :seller_users, foreign_keys: :seller_id, class_name: 'Sell'
-    has_many :browsers, through: :seller_users
+    has_many :seller_users, foreign_key: :browser_id, class_name: 'Sell'
+    has_many :sellers, through: :seller_users, source: :seller
 
-    has_many :browsing_users, foreign_keys: :browser_id, class_name: 'Sell'
-    has_many :sellers, through: :browsing_users
+    has_many :browsing_users, foreign_key: :seller_id, class_name: 'Sell'
+    has_many :browsers, through: :browsing_users, source: :browser
+
+    validates :email, :password, :firstName, :lastName, presence: true
+    validates :email, confirmation: true
+
 end

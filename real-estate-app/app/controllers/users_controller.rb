@@ -2,10 +2,11 @@ class UsersController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
-
+  skip_before_action :verify_authenticity_token
+  
   def create
     user = User.create!(user_params)
-    render json: user, status: created
+    render json: user
   end
 
   def show
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   def update
     user = find_user
     user.update!(user_params)
-    render json: user, status: updated
+    render json: user
   end
 
   private

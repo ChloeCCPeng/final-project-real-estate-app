@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  skip_before_action :verify_authenticity_token
 
   def index
     render json: Message.all
@@ -9,7 +10,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.create!(message_params)
-    render json: message, status: created
+    render json: message
   end
 
   def show
@@ -20,7 +21,7 @@ class MessagesController < ApplicationController
   def update
     message = find_message
     message.update!(message_params)
-    render json: message, status: updated
+    render json: message
   end
 
   def destroy

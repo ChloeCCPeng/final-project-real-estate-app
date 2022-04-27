@@ -2,10 +2,11 @@ class OffersController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  skip_before_action :verify_authenticity_token
 
   def create
     offer = Offer.create!(offer_params)
-    render json: offer, status: created
+    render json: offer
   end
 
   def show
@@ -16,7 +17,7 @@ class OffersController < ApplicationController
   def update
     offer = find_offer
     offer.update!(offer_params)
-    render json: offer, status: updated
+    render json: offer
   end
 
   def destroy

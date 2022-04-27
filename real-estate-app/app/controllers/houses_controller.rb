@@ -2,6 +2,7 @@ class HousesController < ApplicationController
 
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+skip_before_action :verify_authenticity_token
 
   def index
     render json: House.all
@@ -9,7 +10,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def create
     house = House.create!(house_params)
-    render json: house, status: created
+    render json: house
   end
 
   def show
@@ -20,7 +21,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
   def update
     house = find_house
     house.update!(house_params)
-    render json: house, status: updated
+    render json: house
   end
 
   def destroy

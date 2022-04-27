@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'messages/update'
   get 'messages/destroy'
   get 'houses/index'
-  get 'houses/creawte'
+  get 'houses/create'
   get 'houses/show'
   get 'houses/update'
   get 'houses/destroy'

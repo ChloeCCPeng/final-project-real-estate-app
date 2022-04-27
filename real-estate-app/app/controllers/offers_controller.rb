@@ -23,12 +23,15 @@ class OffersController < ApplicationController
     offer = find_offer
     offer.destroy
   end
-
-
+  
   private
 
   def offer_params
     params.permit(:amount, :user_id)
+  end
+
+  def find_offer
+    Offer.find(params[:id])
   end
 
   def render_not_found

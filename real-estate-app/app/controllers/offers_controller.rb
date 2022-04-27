@@ -23,8 +23,7 @@ class OffersController < ApplicationController
     offer = find_offer
     offer.destroy
   end
-
-
+  
   private
 
   def offer_params

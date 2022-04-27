@@ -31,6 +31,10 @@ class OffersController < ApplicationController
     params.permit(:amount, :user_id)
   end
 
+  def find_offer
+    Offer.find(params[:id])
+  end
+
   def render_not_found
     render json: {error: "Hmmm, there might be something wrong, I can't find any offer"}, status: 404
   end

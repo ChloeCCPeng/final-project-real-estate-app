@@ -25,6 +25,14 @@ link: https://www.figma.com/file/j34HP40p8JQfM6Ae2mg6mW/Untitled?node-id=0%3A1
 
 #   Features 
 
+- Login / Sign up and manage the account (create, update and delete the house) (maybe use driver’s license to verify identity)
+- List new houses (shows “new” on the corner for promotion)
+- Add houses to their watch list
+- Place bid / make an offer
+- Leave a message to the seller (Or may a live chat)
+- Filters
+
+
 #   Contact 
 
 

@@ -40,7 +40,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
   end
 
   def render_not_found
-    render json: {error: "Hey, I can't find any house"}, status: 404
+    render json: {error: "Hmmm, there might be something wrong, I can't find any house"}, status: 404
   end
 
   def render_unprocessable_entity invalid

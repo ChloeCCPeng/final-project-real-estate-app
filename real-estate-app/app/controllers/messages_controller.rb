@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
   end
 
   def render_not_found
-    render json: {error: "I can't find any message"}, status: 404
+    render json: {error: "Hmmm, there might be something wrong, I can't find any message"}, status: 404
   end
 
   def render_unprocessable_entity invalid

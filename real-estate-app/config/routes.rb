@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # get 'homepage/index'
   root 'homepage#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  get "/sessions", to: "sessions#index"
   # Defines the root path route ("/")
   # root "articles#index"
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'login/show'
+  get 'signups/create'
   get 'watchlists/index'
   get 'watchlists/create'
   get 'watchlists/show'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/show'
   get 'users/update'
+
   # get 'homepage/index'
   root 'homepage#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -33,4 +36,6 @@ Rails.application.routes.draw do
   resources :messages
   resources :offers, only: [:create, :show, :update, :destroy]
   resources :watchlists
+  resources :logins, only: [:index, :show]
+  resources :signups, only: [:create, :index]
 end

@@ -1,0 +1,23 @@
+{
+  "hash": "7a830082",
+  "browserHash": "cb8da9b8",
+  "optimized": {
+    "react": {
+      "src": "../../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "6573e85e",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "ab389fcf",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-XOG75IZO": {
+      "file": "chunk-XOG75IZO.js"
+    }
+  }
+}
